@@ -14,7 +14,87 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      contact_messages: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          message: string
+          name: string
+          phone: string | null
+          status: string
+          subject: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          message: string
+          name: string
+          phone?: string | null
+          status?: string
+          subject: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          message?: string
+          name?: string
+          phone?: string | null
+          status?: string
+          subject?: string
+        }
+        Relationships: []
+      }
+      demo_requests: {
+        Row: {
+          consent: boolean
+          created_at: string
+          current_system: string | null
+          email: string
+          features: string[]
+          hotel_name: string
+          id: string
+          location: string
+          name: string
+          phone: string
+          preferred_date: string | null
+          rooms: number
+          status: string
+        }
+        Insert: {
+          consent: boolean
+          created_at?: string
+          current_system?: string | null
+          email: string
+          features?: string[]
+          hotel_name: string
+          id?: string
+          location: string
+          name: string
+          phone: string
+          preferred_date?: string | null
+          rooms: number
+          status?: string
+        }
+        Update: {
+          consent?: boolean
+          created_at?: string
+          current_system?: string | null
+          email?: string
+          features?: string[]
+          hotel_name?: string
+          id?: string
+          location?: string
+          name?: string
+          phone?: string
+          preferred_date?: string | null
+          rooms?: number
+          status?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
