@@ -32,7 +32,7 @@ export function RoomGrid() {
     Array.from({ length: 12 }, (_, i) => ({ no: 101 + i + (i > 5 ? 94 : 0), s: order[(i * 7) % 4] as string })),
   );
   const cycle = (i: number) =>
-    setRooms((r) => r.map((x, j) => (j === i ? { ...x, s: order[(order.indexOf(x.s as never) + 1) % 4] } : x)));
+    setRooms((r) => r.map((x, j) => (j === i ? { ...x, s: order[(order.indexOf(x.s as never) + 1) % 4] ?? "Vacant" } : x)));
   return (
     <Frame title="Rooms · Today">
       <div className="mb-3 flex flex-wrap gap-2 text-[11px]">
@@ -243,7 +243,7 @@ export function CalendarMock() {
           <div key={r} className="contents">
             <div className="py-1.5 font-semibold">{r}</div>
             <div className="relative col-span-7 h-7 rounded-md bg-secondary">
-              {bookings[r].map(([s, e, n]) => (
+              {(bookings[r] ?? []).map(([s, e, n]) => (
                 <motion.div
                   key={n}
                   initial={{ scaleX: 0 }}
