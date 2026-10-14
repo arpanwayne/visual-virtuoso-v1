@@ -25,7 +25,7 @@ export const Route = createFileRoute("/restaurant-pos")({
 function Page() {
   return (
     <div className="overflow-x-clip">
-      <PageHero
+      <PageHero variant="fullbleed" chips={["KOT board","Room service → folio","Tax-ready bills"]}
         eyebrow="Restaurant POS"
         title="From table to kitchen to folio — without re-keying."
         intro="Take orders at the table or from a guest room, send them to the kitchen instantly, and post the bill to the guest's folio or settle it on the spot."
@@ -33,12 +33,12 @@ function Page() {
         imageAlt="Chef plating a dish at the kitchen pass"
       />
 
-      <Section
+      <Section tone="tint"
         eyebrow="What's inside"
         title="A POS that understands hotels."
         intro="Because it's part of Wayinn, room-service and restaurant sales land on the right guest bill automatically."
       >
-        <FeatureGrid
+        <FeatureGrid variant="rows"
           items={[
             {
               title: "Menus & variants",
@@ -93,8 +93,8 @@ function Page() {
         mock="kot"
       />
 
-      <Section eyebrow="How it works" title="One order, three places updated.">
-        <Steps
+      <Section tone="wine" eyebrow="How it works" title="One order, three places updated.">
+        <Steps variant="line" dark
           items={[
             { title: "Order", desc: "Staff add items from a table or a guest room." },
             { title: "Cook", desc: "The kitchen board shows the ticket immediately." },
@@ -104,9 +104,9 @@ function Page() {
         />
       </Section>
 
-      <Section eyebrow="Questions" title="Restaurant POS FAQ.">
+      <Section side eyebrow="Questions" title="Restaurant POS FAQ.">
         <div className="max-w-3xl">
-          <FaqList
+          <FaqList variant="split"
             items={[
               {
                 q: "Can I use it only for my restaurant?",
@@ -124,7 +124,7 @@ function Page() {
           />
         </div>
       </Section>
-      <CtaBand />
+      <CtaBand variant="split" />
     </div>
   );
 }

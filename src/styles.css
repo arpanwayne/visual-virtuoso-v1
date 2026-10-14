@@ -5,7 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Playfair Display", ui-serif, Georgia, serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -39,6 +39,8 @@
   --color-electric: var(--electric);
   --color-slate: var(--slate);
   --color-success: var(--success);
+  --color-rose: var(--rose);
+  --color-gold-light: var(--gold-light);
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
@@ -48,46 +50,52 @@
 
 :root {
   --radius: 0.875rem;
-  /* Brand */
-  --navy: oklch(0.2 0.04 270);          /* #10162B */
-  --navy-soft: oklch(0.27 0.05 270);
-  --electric: oklch(0.63 0.19 268);     /* #5878FF */
-  --amber: oklch(0.83 0.13 65);         /* #FFB86B */
-  --ivory: oklch(0.97 0.007 85);        /* #F7F5F0 */
-  --slate: oklch(0.63 0.03 268);        /* #858DA3 */
-  --success: oklch(0.72 0.15 160);
+  /* Brand — Wayinn maroon & gold.
+     Token names are kept for compatibility: "navy" = deep wine, "electric" = crimson, "amber" = logo gold. */
+  --navy: #3a0a15;              /* deep wine — darkest surface & body text */
+  --navy-soft: #5e1020;
+  --electric: #8e1b2f;          /* brand crimson (from the supplied swatch) */
+  --electric-bright: #b23a50;
+  --amber: #d4ab68;             /* logo gold */
+  --gold-light: #ecd3a2;
+  --ivory: #faf6f0;
+  --rose: #a95262;              /* light end of the supplied gradient */
+  --slate: #e8cdd2;             /* muted text on maroon */
+  --success: #3f9d6e;
 
   --background: var(--ivory);
   --foreground: var(--navy);
-  --card: oklch(1 0 0);
+  --card: #ffffff;
   --card-foreground: var(--navy);
-  --popover: oklch(1 0 0);
+  --popover: #ffffff;
   --popover-foreground: var(--navy);
   --primary: var(--electric);
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.93 0.012 85);
+  --primary-foreground: #ffffff;
+  --secondary: #f3e8e3;
   --secondary-foreground: var(--navy);
-  --muted: oklch(0.94 0.01 85);
-  --muted-foreground: oklch(0.5 0.03 268);
+  --muted: #f4ebe6;
+  --muted-foreground: #74505a;
   --accent: var(--amber);
   --accent-foreground: var(--navy);
-  --destructive: oklch(0.6 0.22 27);
-  --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.89 0.012 85);
-  --input: oklch(0.88 0.012 85);
+  --destructive: #c62828;
+  --destructive-foreground: #ffffff;
+  --border: #ead9d3;
+  --input: #dcc6c0;
   --ring: var(--electric);
   --chart-1: var(--electric);
   --chart-2: var(--amber);
   --chart-3: var(--success);
-  --chart-4: var(--slate);
-  --chart-5: oklch(0.7 0.15 20);
+  --chart-4: var(--rose);
+  --chart-5: var(--navy-soft);
 
-  --gradient-night: radial-gradient(120% 80% at 70% 0%, oklch(0.32 0.1 268) 0%, var(--navy) 55%, oklch(0.15 0.03 270) 100%);
-  --gradient-brand: linear-gradient(120deg, var(--electric), oklch(0.7 0.14 230) 50%, var(--amber));
-  --gradient-fade: linear-gradient(180deg, oklch(0.2 0.04 270 / 0) 0%, oklch(0.2 0.04 270 / 0.85) 100%);
-  --shadow-soft: 0 20px 50px -20px oklch(0.2 0.04 270 / 0.25);
-  --shadow-deep: 0 40px 80px -30px oklch(0.15 0.05 270 / 0.55), 0 0 0 1px oklch(1 0 0 / 0.06);
-  --shadow-glow: 0 10px 40px -10px oklch(0.63 0.19 268 / 0.7);
+  --gradient-night: radial-gradient(130% 95% at 85% 0%, #a95262 0%, #8e1b2f 42%, #6b1426 78%, #4a0d1a 100%);
+  --gradient-wine: linear-gradient(160deg, #5e1020 0%, #3a0a15 100%);
+  --gradient-brand: linear-gradient(110deg, #f1d9a8 0%, #d4ab68 45%, #f4dfe2 100%);
+  --gradient-deep: linear-gradient(110deg, #8e1b2f 0%, #b23a50 45%, #b8873e 100%);
+  --gradient-fade: linear-gradient(180deg, rgb(58 10 21 / 0) 0%, rgb(58 10 21 / 0.88) 100%);
+  --shadow-soft: 0 20px 50px -22px rgb(58 10 21 / 0.28);
+  --shadow-deep: 0 40px 80px -30px rgb(40 6 14 / 0.6), 0 0 0 1px rgb(255 255 255 / 0.06);
+  --shadow-glow: 0 10px 36px -10px rgb(142 27 47 / 0.75);
 }
 
 @layer base {
@@ -99,7 +107,8 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
   }
-  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; }
+  h1, h2 { font-family: var(--font-display); letter-spacing: -0.01em; }
+  h3, h4 { font-family: var(--font-sans); letter-spacing: -0.01em; }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
@@ -107,7 +116,15 @@
 }
 
 @utility bg-night { background: var(--gradient-night); color: var(--ivory); }
+@utility bg-wine { background: var(--gradient-wine); color: var(--ivory); }
+@utility bg-tint { background: linear-gradient(180deg, #f6ece7 0%, var(--ivory) 100%); }
 @utility bg-brand-gradient { background: var(--gradient-brand); }
+@utility text-gradient-deep {
+  background: var(--gradient-deep);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
 @utility text-gradient {
   background: var(--gradient-brand);
   -webkit-background-clip: text;
@@ -122,9 +139,9 @@
   border: 1px solid oklch(1 0 0 / 0.12);
 }
 @utility glass-light {
-  background: oklch(1 0 0 / 0.72);
+  background: rgb(255 255 255 / 0.78);
   backdrop-filter: blur(16px) saturate(140%);
-  border: 1px solid oklch(0.2 0.04 270 / 0.08);
+  border: 1px solid rgb(58 10 21 / 0.08);
 }
 @utility grid-lines {
   background-image:
@@ -133,7 +150,7 @@
   background-size: 56px 56px;
 }
 @utility eyebrow {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.18em;
@@ -142,17 +159,18 @@
 @utility btn-primary {
   display: inline-flex; align-items: center; gap: 0.5rem; justify-content: center;
   border-radius: 999px; padding: 0.8rem 1.4rem; font-weight: 600; font-size: 0.95rem;
-  background: var(--electric); color: oklch(1 0 0);
-  box-shadow: var(--shadow-glow);
+  background: var(--electric); color: #fff;
+  box-shadow: var(--shadow-glow), inset 0 0 0 1px rgb(255 255 255 / 0.16);
   transition: transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .25s, background .25s;
-  &:hover { transform: translateY(-2px); background: oklch(0.58 0.2 268); }
+  &:hover { transform: translateY(-2px); background: var(--electric-bright); }
   &:active { transform: translateY(0) scale(.98); }
   &:disabled { opacity: .6; pointer-events: none; }
 }
 @utility btn-amber {
   display: inline-flex; align-items: center; gap: 0.5rem; justify-content: center;
   border-radius: 999px; padding: 0.8rem 1.4rem; font-weight: 600; font-size: 0.95rem;
-  background: var(--amber); color: var(--navy);
+  background: linear-gradient(135deg, var(--gold-light), var(--amber)); color: var(--navy);
+  box-shadow: 0 10px 30px -12px rgb(212 171 104 / 0.8);
   transition: transform .25s cubic-bezier(.2,.8,.2,1), filter .25s;
   &:hover { transform: translateY(-2px); filter: brightness(1.05); }
   &:active { transform: scale(.98); }
@@ -168,15 +186,16 @@
 @utility btn-outline {
   display: inline-flex; align-items: center; gap: 0.5rem; justify-content: center;
   border-radius: 999px; padding: 0.8rem 1.4rem; font-weight: 600; font-size: 0.95rem;
-  border: 1px solid var(--border); color: var(--navy); background: oklch(1 0 0);
+  border: 1px solid var(--border); color: var(--navy); background: #fff;
   transition: border-color .25s, transform .25s;
   &:hover { border-color: var(--electric); transform: translateY(-2px); }
 }
 @utility field {
+  &::placeholder { color: #a08890; }
   width: 100%; border-radius: 0.75rem; border: 1px solid var(--input);
-  background: oklch(1 0 0); padding: 0.7rem 0.9rem; font-size: 0.95rem; color: var(--navy);
+  background: #fff; padding: 0.7rem 0.9rem; font-size: 0.95rem; color: var(--navy);
   transition: border-color .2s, box-shadow .2s;
-  &:focus { outline: none; border-color: var(--electric); box-shadow: 0 0 0 4px oklch(0.63 0.19 268 / 0.15); }
+  &:focus { outline: none; border-color: var(--electric); box-shadow: 0 0 0 4px rgb(142 27 47 / 0.14); }
 }
 
 @keyframes float-y { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-12px) } }

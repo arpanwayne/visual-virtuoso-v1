@@ -23,15 +23,13 @@ export const Route = createFileRoute("/integrations")({
 function Page() {
   return (
     <>
-      <PageHero
+      <PageHero variant="light" mock="ai" secondary={{ to: "/contact", label: "Request an integration" }}
         eyebrow="Integrations"
         title="Plays well with the tools you already use."
         intro="Hotels rely on more than one system. We scope integrations around what your property actually needs, so you connect what's useful and skip what isn't."
-        image={reception}
-        imageAlt="Hotel front desk with a computer and tablet"
       />
 
-      <Section
+      <Section tone="tint"
         eyebrow="Categories"
         title="Where Wayinn can connect."
         intro="Availability depends on your setup. Tell us what you use and we'll confirm what's possible."
@@ -73,7 +71,7 @@ function Page() {
       </Section>
 
       <Section eyebrow="How it works" title="Integrations, scoped to you." dark>
-        <Steps
+        <Steps variant="line"
           dark
           items={[
             { title: "Tell us", desc: "Share the tools your hotel uses today." },

@@ -25,7 +25,7 @@ export const Route = createFileRoute("/hotel-management")({
 function Page() {
   return (
     <>
-      <PageHero
+      <PageHero variant="split" chips={["Reservation calendar","Live room status","Guest profiles"]}
         eyebrow="Hotel & Room Management"
         title="Every reservation, every room, always up to date."
         intro="Wayinn gives your front desk one live view of bookings, arrivals, departures and room status — so nobody double-books, and nobody has to walk to the housekeeping closet to ask what's ready."

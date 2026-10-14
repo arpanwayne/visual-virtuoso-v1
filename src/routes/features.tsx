@@ -26,12 +26,10 @@ export const Route = createFileRoute("/features")({
 function Page() {
   return (
     <>
-      <PageHero
+      <PageHero variant="centered" chips={["Reservations","Restaurant POS","QR guest portal","Housekeeping","Billing","Reports","AI"]}
         eyebrow="Features"
         title="Everything your hotel runs on, in one system."
         intro="Seven connected modules share the same guests, rooms and bills — so information entered once shows up everywhere it's needed."
-        image={reception}
-        imageAlt="Hotel front desk at dusk"
       />
       <StatStrip
         items={[

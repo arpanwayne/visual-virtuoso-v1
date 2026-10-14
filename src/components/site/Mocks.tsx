@@ -14,7 +14,7 @@ const order = ["Vacant", "Occupied", "Dirty", "Maintenance"] as const;
 
 function Frame({ title, children, dark = false }: { title: string; children: React.ReactNode; dark?: boolean }) {
   return (
-    <div className={`overflow-hidden rounded-2xl shadow-deep ${dark ? "bg-navy-soft text-ivory" : "bg-card"}`}>
+    <div className={`overflow-hidden rounded-2xl shadow-deep ${dark ? "bg-navy-soft text-ivory" : "bg-card text-navy"}`}>
       <div className={`flex items-center gap-2 border-b px-4 py-3 ${dark ? "border-ivory/10" : ""}`}>
         <span className="h-2.5 w-2.5 rounded-full bg-destructive/70" />
         <span className="h-2.5 w-2.5 rounded-full bg-amber" />
@@ -179,7 +179,7 @@ export function PhoneMock() {
   const [sent, setSent] = useState<string | null>(null);
   const items = ["Room service menu", "Extra towels", "Housekeeping", "Report an issue", "Request checkout"];
   return (
-    <div className="animate-float mx-auto w-64 rounded-[2.5rem] border-[10px] border-navy bg-card p-4 shadow-deep">
+    <div className="animate-float mx-auto w-64 rounded-[2.5rem] border-[10px] border-navy bg-card p-4 text-navy shadow-deep">
       <div className="mx-auto mb-4 h-1.5 w-16 rounded-full bg-navy/20" />
       <div className="flex items-center gap-2"><QrCode className="h-5 w-5 text-electric" /><span className="font-display text-sm font-bold">Room 204</span></div>
       <p className="mt-1 text-xs text-muted-foreground">How can we help?</p>

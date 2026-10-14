@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Instagram, Linkedin, Mail, MapPin, Phone, Youtube } from "lucide-react";
-import { Logo } from "./Logo";
+import { LogoStacked } from "./Logo";
 import { companyLinks, legalLinks, productLinks, solutionLinks, supportLinks } from "./nav-data";
 
 function Col({ title, links }: { title: string; links: ReadonlyArray<{ to: string; label: string }> }) {
@@ -10,7 +10,7 @@ function Col({ title, links }: { title: string; links: ReadonlyArray<{ to: strin
       <ul className="mt-4 space-y-2.5">
         {links.map((l) => (
           <li key={l.label}>
-            <Link to={l.to} className="text-sm text-slate transition-colors hover:text-ivory">{l.label}</Link>
+            <Link to={l.to} className="text-sm text-slate/90 transition-colors hover:text-amber">{l.label}</Link>
           </li>
         ))}
       </ul>
@@ -20,12 +20,13 @@ function Col({ title, links }: { title: string; links: ReadonlyArray<{ to: strin
 
 export function Footer() {
   return (
-    <footer className="bg-night relative overflow-hidden">
-      <div className="grid-lines absolute inset-0 opacity-40" aria-hidden />
+    <footer className="bg-wine relative overflow-hidden">
+      <div className="grid-lines absolute inset-0 opacity-30" aria-hidden />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-amber/60 to-transparent" aria-hidden />
       <div className="relative mx-auto max-w-7xl px-6 pb-10 pt-20">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_repeat(4,1fr)]">
           <div>
-            <Logo light />
+            <LogoStacked className="h-24 w-auto sm:h-28" />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-slate">
               Wayinn is the hotel operating system for independent, budget and boutique hotels with up to 50 rooms —
               reservations, rooms, restaurant, housekeeping and billing in one place.

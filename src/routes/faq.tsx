@@ -25,17 +25,15 @@ export const Route = createFileRoute("/faq")({
 function Page() {
   return (
     <>
-      <PageHero
+      <PageHero variant="minimal"
         eyebrow="FAQ"
         title="Questions hoteliers ask us."
         intro="Can't find what you're looking for? Send us a message and we'll answer."
-        image={reception}
-        imageAlt="Hotel reception desk"
       />
 
-      <Section eyebrow="Getting started" title="About Wayinn">
+      <Section side eyebrow="Getting started" title="About Wayinn">
         <div className="max-w-3xl">
-          <FaqList
+          <FaqList variant="split"
             items={[
               {
                 q: "What is Wayinn?",
@@ -58,9 +56,9 @@ function Page() {
         </div>
       </Section>
 
-      <Section eyebrow="Using it" title="Day-to-day" dark>
+      <Section side eyebrow="Using it" title="Day-to-day" dark>
         <div className="max-w-3xl">
-          <FaqList
+          <FaqList variant="dark"
             items={[
               {
                 q: "What devices does it work on?",
@@ -83,7 +81,7 @@ function Page() {
         </div>
       </Section>
 
-      <Section eyebrow="Trust" title="Data, AI & pricing">
+      <Section side tone="tint" eyebrow="Trust" title="Data, AI & pricing">
         <div className="max-w-3xl">
           <FaqList
             items={[
@@ -114,7 +112,7 @@ function Page() {
           </p>
         </div>
       </Section>
-      <CtaBand />
+      <CtaBand variant="split" />
     </>
   );
 }

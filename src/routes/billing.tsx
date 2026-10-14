@@ -25,12 +25,10 @@ export const Route = createFileRoute("/billing")({
 function Page() {
   return (
     <>
-      <PageHero
+      <PageHero variant="mock" mock="invoice"
         eyebrow="Billing & Payments"
         title="One folio. Every charge. No surprises at checkout."
         intro="Room charges, restaurant orders and extras post to a single guest folio. Take payments in any mode, issue clear invoices and record refunds with a reason."
-        image={reception}
-        imageAlt="Hotel reception desk where guests check out"
       />
 
       <Section
@@ -38,7 +36,7 @@ function Page() {
         title="Billing that matches how hotels charge."
         intro="Everything a guest owes in one place — and everything you've collected in another."
       >
-        <FeatureGrid
+        <FeatureGrid variant="rows"
           items={[
             {
               title: "Guest folios",
@@ -88,8 +86,8 @@ function Page() {
         mock="invoice"
       />
 
-      <Section eyebrow="How it works" title="From first charge to final receipt.">
-        <Steps
+      <Section tone="wine" center eyebrow="How it works" title="From first charge to final receipt.">
+        <Steps variant="vertical" dark
           items={[
             {
               title: "Post",
@@ -105,7 +103,7 @@ function Page() {
         />
       </Section>
 
-      <Section eyebrow="Questions" title="Billing FAQ.">
+      <Section side eyebrow="Questions" title="Billing FAQ.">
         <div className="max-w-3xl">
           <FaqList
             items={[
@@ -125,7 +123,7 @@ function Page() {
           />
         </div>
       </Section>
-      <CtaBand />
+      <CtaBand variant="split" />
     </>
   );
 }

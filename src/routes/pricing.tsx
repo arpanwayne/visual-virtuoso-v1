@@ -22,12 +22,10 @@ export const Route = createFileRoute("/pricing")({
 function Page() {
   return (
     <>
-      <PageHero
+      <PageHero variant="mock" mock="rooms" secondary={{ to: "/contact", label: "Ask a question" }}
         eyebrow="Pricing"
         title="Pricing that grows with your property."
         intro="Wayinn is priced by the size of your hotel and the modules you need. Tell us about your rooms and we'll send a clear quote — no hidden extras."
-        image={reception}
-        imageAlt="Hotel front desk"
       />
 
       <Section
@@ -91,9 +89,9 @@ function Page() {
         </div>
       </Section>
 
-      <Section eyebrow="Questions" title="Pricing FAQ.">
+      <Section side eyebrow="Questions" title="Pricing FAQ.">
         <div className="max-w-3xl">
-          <FaqList
+          <FaqList variant="split"
             items={[
               {
                 q: "Why isn't the price listed?",

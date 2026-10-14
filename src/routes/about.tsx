@@ -27,7 +27,7 @@ export const Route = createFileRoute("/about")({
 function Page() {
   return (
     <>
-      <PageHero
+      <PageHero variant="stacked" secondary={{ to: "/contact", label: "Contact us" }}
         eyebrow="About Wayinn"
         title="Hotel software that respects small teams."
         intro="Wayinn is a hotel operating system by Wayne E Solutions. We build tools that let independent hoteliers run reservations, rooms, restaurant, housekeeping and billing without needing an IT department."

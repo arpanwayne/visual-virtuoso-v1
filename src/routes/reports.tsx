@@ -25,20 +25,18 @@ export const Route = createFileRoute("/reports")({
 function Page() {
   return (
     <>
-      <PageHero
+      <PageHero variant="light" mock="chart"
         eyebrow="Owner Reports"
         title="Know your hotel every morning."
         intro="Open Wayinn and see occupancy, revenue and collections for yesterday, this week or this month — whether you're at the property or away from it."
-        image={reception}
-        imageAlt="Hotel lobby at dusk"
       />
 
-      <Section
+      <Section tone="tint"
         eyebrow="What you can see"
         title="The numbers owners actually ask for."
         intro="No exports, no formulas. The reports are already built from your daily operations."
       >
-        <FeatureGrid
+        <FeatureGrid variant="bento"
           items={[
             {
               title: "Occupancy",
@@ -89,7 +87,7 @@ function Page() {
       />
 
       <Section eyebrow="How it works" title="Reports without extra work.">
-        <Steps
+        <Steps variant="line"
           items={[
             { title: "Operate", desc: "Your team works in Wayinn as usual." },
             {
@@ -102,9 +100,9 @@ function Page() {
         />
       </Section>
 
-      <Section eyebrow="Questions" title="Reports FAQ.">
+      <Section tone="tint" eyebrow="Questions" title="Reports FAQ.">
         <div className="max-w-3xl">
-          <FaqList
+          <FaqList variant="split"
             items={[
               {
                 q: "Can I check reports when I'm away?",
@@ -122,7 +120,7 @@ function Page() {
           />
         </div>
       </Section>
-      <CtaBand />
+      <CtaBand variant="split" />
     </>
   );
 }

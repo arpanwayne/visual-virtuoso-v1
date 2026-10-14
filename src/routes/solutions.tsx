@@ -29,7 +29,7 @@ export const Route = createFileRoute("/solutions")({
 function Page() {
   return (
     <>
-      <PageHero
+      <PageHero variant="light"
         eyebrow="Solutions"
         title="Built for hotels with up to 50 rooms."
         intro="Big-chain software is too heavy. Spreadsheets are too fragile. Wayinn sits in between: simple enough for a small team, complete enough to run the whole property."
@@ -112,7 +112,7 @@ function Page() {
         imageAlt="Restaurant kitchen in a hotel"
       />
 
-      <Section eyebrow="Fit check" title="Wayinn is a great fit if…">
+      <Section side tone="tint" eyebrow="Fit check" title="Wayinn is a great fit if…">
         <div className="max-w-3xl rounded-3xl border bg-card p-8 shadow-soft">
           <Checklist
             items={[

@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero, FeatureGrid, SplitShowcase, CtaBand } from "@/components/site/Blocks";
 import { Section, Steps, FaqList } from "@/components/site/PageBlocks";
-import guestQr from "@/assets/guest-qr.jpg";
 
 export const Route = createFileRoute("/guest-portal")({
   head: () => ({
@@ -25,12 +24,10 @@ export const Route = createFileRoute("/guest-portal")({
 function Page() {
   return (
     <>
-      <PageHero
+      <PageHero variant="centered" mock="phone" secondary={{ to: "/hotel-management", label: "How rooms connect" }}
         eyebrow="QR Guest Portal"
         title="Your front desk, in every guest's pocket."
         intro="Guests scan the QR code in their room and get menus, service requests and checkout help on their own phone — no app to install, no phone calls to the desk."
-        image={guestQr}
-        imageAlt="Guest scanning a QR code in a hotel room"
       />
 
       <Section
@@ -38,7 +35,7 @@ function Page() {
         title="Fewer calls. Faster service."
         intro="Every request goes straight to the right team and is tracked until it's done."
       >
-        <FeatureGrid
+        <FeatureGrid variant="bento"
           items={[
             {
               title: "Digital menus",
@@ -92,8 +89,8 @@ function Page() {
         mock="phone"
       />
 
-      <Section eyebrow="How it works" title="Scan, request, delivered.">
-        <Steps
+      <Section tone="tint" center eyebrow="How it works" title="Scan, request, delivered.">
+        <Steps variant="vertical"
           items={[
             { title: "Scan", desc: "The guest scans the QR code placed in their room." },
             { title: "Choose", desc: "They pick a menu item, amenity or service request." },
@@ -106,7 +103,7 @@ function Page() {
         />
       </Section>
 
-      <Section eyebrow="Questions" title="Guest portal FAQ.">
+      <Section side eyebrow="Questions" title="Guest portal FAQ.">
         <div className="max-w-3xl">
           <FaqList
             items={[

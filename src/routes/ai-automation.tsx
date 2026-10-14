@@ -27,20 +27,18 @@ export const Route = createFileRoute("/ai-automation")({
 function Page() {
   return (
     <>
-      <PageHero
+      <PageHero variant="centered" mock="ai" chips={["Daily summaries","Smart alerts","Message drafts","Human-reviewed"]}
         eyebrow="AI & Automation"
         title="Helpful AI. Your team stays in charge."
         intro="Wayinn uses AI to summarise your day, flag things that need attention and draft routine messages — and every suggestion is reviewed by a person before it goes anywhere."
-        image={reception}
-        imageAlt="Hotel receptionist reviewing information on a tablet"
       />
 
-      <Section
+      <Section tone="wine"
         eyebrow="What it does"
         title="Small time-savers that add up."
         intro="Built for the repetitive parts of running a hotel, not to replace the human parts."
       >
-        <FeatureGrid
+        <FeatureGrid variant="dark"
           items={[
             {
               title: "Daily summaries",
@@ -77,7 +75,7 @@ function Page() {
       </Section>
 
       <SplitShowcase
-        dark
+        
         eyebrow="Review first"
         title="AI suggests. Staff decide."
         body="Nothing is sent to a guest or posted to a record until a team member approves it."
@@ -90,8 +88,8 @@ function Page() {
         mock="ai"
       />
 
-      <Section eyebrow="Our approach" title="Responsible by default.">
-        <InfoCards
+      <Section tone="tint" side eyebrow="Our approach" title="Responsible by default.">
+        <InfoCards cols={2}
           items={[
             {
               icon: <ShieldCheck className="h-5 w-5" />,
@@ -113,7 +111,7 @@ function Page() {
       </Section>
 
       <Section eyebrow="How it works" title="From data to draft to done.">
-        <Steps
+        <Steps variant="vertical"
           items={[
             { title: "Observe", desc: "Wayinn looks at the day's bookings, tasks and payments." },
             { title: "Draft", desc: "It prepares a summary, alert or message draft." },
@@ -123,9 +121,9 @@ function Page() {
         />
       </Section>
 
-      <Section eyebrow="Questions" title="AI & automation FAQ.">
+      <Section tone="dark" eyebrow="Questions" title="AI & automation FAQ.">
         <div className="max-w-3xl">
-          <FaqList
+          <FaqList variant="dark"
             items={[
               {
                 q: "Will AI message my guests automatically?",

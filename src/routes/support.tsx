@@ -2,7 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { BookOpen, LifeBuoy, MessageCircle, Rocket } from "lucide-react";
 import { PageHero, CtaBand } from "@/components/site/Blocks";
 import { Section, InfoCards, Steps } from "@/components/site/PageBlocks";
-import guestQr from "@/assets/guest-qr.jpg";
 
 export const Route = createFileRoute("/support")({
   head: () => ({
@@ -22,12 +21,10 @@ export const Route = createFileRoute("/support")({
 function Page() {
   return (
     <>
-      <PageHero
+      <PageHero variant="minimal" chips={["Onboarding","Training","Product help","Data migration"]}
         eyebrow="Support"
         title="Help, from people who know the product."
         intro="From your first booking to your busiest weekend, our team helps you get set up, trained and unstuck."
-        image={guestQr}
-        imageAlt="Guest using a phone in a hotel room"
       />
 
       <Section eyebrow="Ways we help" title="Support at every stage.">
@@ -58,8 +55,8 @@ function Page() {
         />
       </Section>
 
-      <Section eyebrow="Getting help" title="How to reach us." dark>
-        <Steps
+      <Section tone="wine" eyebrow="Getting help" title="How to reach us." dark>
+        <Steps variant="line"
           dark
           items={[
             { title: "Check the FAQ", desc: "Many common questions are answered on our FAQ page." },

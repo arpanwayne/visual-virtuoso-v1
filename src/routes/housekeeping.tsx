@@ -25,7 +25,7 @@ export const Route = createFileRoute("/housekeeping")({
 function Page() {
   return (
     <>
-      <PageHero
+      <PageHero variant="stacked"
         eyebrow="Housekeeping"
         title="Clean rooms, faster turnover."
         intro="Give your housekeeping and maintenance teams a clear task list, let supervisors prioritise and inspect, and let the front desk see exactly which rooms are ready."
@@ -33,12 +33,12 @@ function Page() {
         imageAlt="Housekeeper making a hotel bed"
       />
 
-      <Section
+      <Section tone="dark"
         eyebrow="What's inside"
         title="Everything the floor team needs."
         intro="Simple for staff to use on a phone, clear enough for managers to trust."
       >
-        <FeatureGrid
+        <FeatureGrid variant="dark"
           items={[
             {
               title: "Task assignments",
@@ -83,7 +83,7 @@ function Page() {
       </Section>
 
       <SplitShowcase
-        dark
+        
         eyebrow="Task board"
         title="One list, always current."
         body="Staff tick off tasks from their phone and supervisors see progress in real time."
@@ -99,7 +99,7 @@ function Page() {
       />
 
       <Section eyebrow="How it works" title="From checkout to ready.">
-        <Steps
+        <Steps variant="line"
           items={[
             { title: "Checkout", desc: "A guest departs and the room is marked dirty." },
             { title: "Assign", desc: "A cleaning task is created and given to a staff member." },
@@ -114,7 +114,7 @@ function Page() {
 
       <Section eyebrow="Questions" title="Housekeeping FAQ.">
         <div className="max-w-3xl">
-          <FaqList
+          <FaqList variant="split"
             items={[
               {
                 q: "Can staff use it on their phones?",
