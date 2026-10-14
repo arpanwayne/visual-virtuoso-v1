@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
+import lobbyReception from "@/assets/lobby-reception.jpg";
 import { Heart, Gauge, Handshake, Lightbulb } from "lucide-react";
 import { PageHero, SplitShowcase, CtaBand } from "@/components/site/Blocks";
 import { Section, InfoCards, StatStrip } from "@/components/site/PageBlocks";
-import reception from "@/assets/reception.jpg";
 import housekeeping from "@/assets/housekeeping.jpg";
 
 export const Route = createFileRoute("/about")({
@@ -31,8 +31,8 @@ function Page() {
         eyebrow="About Wayinn"
         title="Hotel software that respects small teams."
         intro="Wayinn is a hotel operating system by Wayne E Solutions. We build tools that let independent hoteliers run reservations, rooms, restaurant, housekeeping and billing without needing an IT department."
-        image={reception}
-        imageAlt="Hotel reception at dusk"
+        image={lobbyReception}
+        imageAlt="Warmly lit marble reception desk in a hotel lobby"
       />
       <StatStrip
         items={[

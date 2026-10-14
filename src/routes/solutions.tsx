@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
+import diningService from "@/assets/dining-service.jpg";
+import lobbyReception from "@/assets/lobby-reception.jpg";
 import { Building2, Hotel, Gem, UtensilsCrossed } from "lucide-react";
 import { PageHero, SplitShowcase, CtaBand } from "@/components/site/Blocks";
 import { Section, InfoCards, Checklist } from "@/components/site/PageBlocks";
-import reception from "@/assets/reception.jpg";
-import restaurant from "@/assets/restaurant.jpg";
 import housekeeping from "@/assets/housekeeping.jpg";
 import guestQr from "@/assets/guest-qr.jpg";
 
@@ -33,7 +33,7 @@ function Page() {
         eyebrow="Solutions"
         title="Built for hotels with up to 50 rooms."
         intro="Big-chain software is too heavy. Spreadsheets are too fragile. Wayinn sits in between: simple enough for a small team, complete enough to run the whole property."
-        image={reception}
+        image={lobbyReception}
         imageAlt="Boutique hotel reception"
       />
 
@@ -108,7 +108,7 @@ function Page() {
         title="One bill, one system."
         body="Tables, kitchen, room service and the guest folio all talk to each other."
         points={["Restaurant POS", "KOT tickets", "Room-service to folio", "Item-wise sales"]}
-        image={restaurant}
+        image={diningService}
         imageAlt="Restaurant kitchen in a hotel"
       />
 

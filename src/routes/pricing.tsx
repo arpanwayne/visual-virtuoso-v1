@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero, CtaBand } from "@/components/site/Blocks";
 import { Section, PlanCards, FaqList, Checklist } from "@/components/site/PageBlocks";
-import reception from "@/assets/reception.jpg";
 
 export const Route = createFileRoute("/pricing")({
   head: () => ({

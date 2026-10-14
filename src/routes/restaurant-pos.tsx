@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
+import diningService from "@/assets/dining-service.jpg";
 import { PageHero, FeatureGrid, SplitShowcase, CtaBand } from "@/components/site/Blocks";
 import { Section, Steps, FaqList } from "@/components/site/PageBlocks";
-import restaurant from "@/assets/restaurant.jpg";
 
 export const Route = createFileRoute("/restaurant-pos")({
   head: () => ({
@@ -29,8 +29,8 @@ function Page() {
         eyebrow="Restaurant POS"
         title="From table to kitchen to folio — without re-keying."
         intro="Take orders at the table or from a guest room, send them to the kitchen instantly, and post the bill to the guest's folio or settle it on the spot."
-        image={restaurant}
-        imageAlt="Chef plating a dish at the kitchen pass"
+        image={diningService}
+        imageAlt="Waiter serving a curry dish in a hotel restaurant"
       />
 
       <Section tone="tint"

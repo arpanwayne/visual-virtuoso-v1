@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
+import lobbyReception from "@/assets/lobby-reception.jpg";
 import { PageHero, FeatureGrid, SplitShowcase, CtaBand } from "@/components/site/Blocks";
 import { Section, Steps, FaqList } from "@/components/site/PageBlocks";
-import reception from "@/assets/reception.jpg";
 
 export const Route = createFileRoute("/hotel-management")({
   head: () => ({
@@ -29,8 +29,8 @@ function Page() {
         eyebrow="Hotel & Room Management"
         title="Every reservation, every room, always up to date."
         intro="Wayinn gives your front desk one live view of bookings, arrivals, departures and room status — so nobody double-books, and nobody has to walk to the housekeeping closet to ask what's ready."
-        image={reception}
-        imageAlt="Front-desk associate using a tablet at a hotel reception at dusk"
+        image={lobbyReception}
+        imageAlt="Warmly lit marble reception desk in a hotel lobby"
       />
 
       <Section

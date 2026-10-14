@@ -5,7 +5,6 @@ import { Section, InfoCards, StatStrip } from "@/components/site/PageBlocks";
 import restaurant from "@/assets/restaurant.jpg";
 import housekeeping from "@/assets/housekeeping.jpg";
 import guestQr from "@/assets/guest-qr.jpg";
-import reception from "@/assets/reception.jpg";
 
 export const Route = createFileRoute("/features")({
   head: () => ({

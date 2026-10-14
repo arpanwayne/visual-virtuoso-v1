@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ShieldCheck } from "lucide-react";
 import { PageHero, FeatureGrid, SplitShowcase, CtaBand } from "@/components/site/Blocks";
 import { Section, Steps, FaqList, InfoCards } from "@/components/site/PageBlocks";
-import reception from "@/assets/reception.jpg";
 
 export const Route = createFileRoute("/ai-automation")({
   head: () => ({

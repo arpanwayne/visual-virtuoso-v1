@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHero, CtaBand } from "@/components/site/Blocks";
 import { Section, FaqList } from "@/components/site/PageBlocks";
-import reception from "@/assets/reception.jpg";
 
 export const Route = createFileRoute("/faq")({
   head: () => ({

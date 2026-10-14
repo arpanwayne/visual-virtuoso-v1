@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { CreditCard, MessageSquare, Calculator, Globe, Printer, Plug } from "lucide-react";
 import { PageHero, CtaBand } from "@/components/site/Blocks";
 import { Section, InfoCards, Steps } from "@/components/site/PageBlocks";
-import reception from "@/assets/reception.jpg";
 
 export const Route = createFileRoute("/integrations")({
   head: () => ({

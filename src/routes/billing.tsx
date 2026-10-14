@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero, FeatureGrid, SplitShowcase, CtaBand } from "@/components/site/Blocks";
 import { Section, Steps, FaqList } from "@/components/site/PageBlocks";
-import reception from "@/assets/reception.jpg";
 
 export const Route = createFileRoute("/billing")({
   head: () => ({
