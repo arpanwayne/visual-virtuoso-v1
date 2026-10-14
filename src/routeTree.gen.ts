@@ -28,6 +28,7 @@ import { Route as ReportsRouteImport } from './routes/reports'
 import { Route as RestaurantPosRouteImport } from './routes/restaurant-pos'
 import { Route as SolutionsRouteImport } from './routes/solutions'
 import { Route as SupportRouteImport } from './routes/support'
+import { Route as TeamRouteImport } from './routes/team'
 import { Route as TermsRouteImport } from './routes/terms'
 
 const IndexRoute = IndexRouteImport.update({
@@ -125,6 +126,11 @@ const SupportRoute = SupportRouteImport.update({
   path: '/support',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TeamRoute = TeamRouteImport.update({
+  id: '/team',
+  path: '/team',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
@@ -151,6 +157,7 @@ export interface FileRoutesByFullPath {
   '/restaurant-pos': typeof RestaurantPosRoute
   '/solutions': typeof SolutionsRoute
   '/support': typeof SupportRoute
+  '/team': typeof TeamRoute
   '/terms': typeof TermsRoute
 }
 export interface FileRoutesByTo {
@@ -173,6 +180,7 @@ export interface FileRoutesByTo {
   '/restaurant-pos': typeof RestaurantPosRoute
   '/solutions': typeof SolutionsRoute
   '/support': typeof SupportRoute
+  '/team': typeof TeamRoute
   '/terms': typeof TermsRoute
 }
 export interface FileRoutesById {
@@ -196,6 +204,7 @@ export interface FileRoutesById {
   '/restaurant-pos': typeof RestaurantPosRoute
   '/solutions': typeof SolutionsRoute
   '/support': typeof SupportRoute
+  '/team': typeof TeamRoute
   '/terms': typeof TermsRoute
 }
 export interface FileRouteTypes {
@@ -220,6 +229,7 @@ export interface FileRouteTypes {
     | '/restaurant-pos'
     | '/solutions'
     | '/support'
+    | '/team'
     | '/terms'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -242,6 +252,7 @@ export interface FileRouteTypes {
     | '/restaurant-pos'
     | '/solutions'
     | '/support'
+    | '/team'
     | '/terms'
   id:
     | '__root__'
@@ -264,6 +275,7 @@ export interface FileRouteTypes {
     | '/restaurant-pos'
     | '/solutions'
     | '/support'
+    | '/team'
     | '/terms'
   fileRoutesById: FileRoutesById
 }
@@ -287,6 +299,7 @@ export interface RootRouteChildren {
   RestaurantPosRoute: typeof RestaurantPosRoute
   SolutionsRoute: typeof SolutionsRoute
   SupportRoute: typeof SupportRoute
+  TeamRoute: typeof TeamRoute
   TermsRoute: typeof TermsRoute
 }
 
@@ -425,6 +438,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SupportRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/team': {
+      id: '/team'
+      path: '/team'
+      fullPath: '/team'
+      preLoaderRoute: typeof TeamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/terms': {
       id: '/terms'
       path: '/terms'
@@ -455,6 +475,7 @@ const rootRouteChildren: RootRouteChildren = {
   RestaurantPosRoute: RestaurantPosRoute,
   SolutionsRoute: SolutionsRoute,
   SupportRoute: SupportRoute,
+  TeamRoute: TeamRoute,
   TermsRoute: TermsRoute,
 }
 export const routeTree = rootRouteImport

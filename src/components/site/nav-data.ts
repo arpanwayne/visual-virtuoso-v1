@@ -17,6 +17,7 @@ export const solutionLinks = [
 
 export const companyLinks = [
   { to: "/about", label: "About Wayinn" },
+  { to: "/team", label: "Our team" },
   { to: "/pricing", label: "Pricing" },
   { to: "/contact", label: "Contact" },
   { to: "/book-demo", label: "Book a demo" },

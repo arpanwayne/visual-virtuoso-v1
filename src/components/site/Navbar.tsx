@@ -11,6 +11,7 @@ const simple = [
   { to: "/integrations", label: "Integrations" },
   { to: "/pricing", label: "Pricing" },
   { to: "/about", label: "About" },
+  { to: "/team", label: "Team" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
