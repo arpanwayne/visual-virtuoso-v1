@@ -10,11 +10,11 @@ function Rig() {
   const t0 = useRef<number | null>(null);
   useFrame((state) => {
     if (t0.current === null) t0.current = state.clock.elapsedTime;
-    const t = Math.min(1, (state.clock.elapsedTime - t0.current) / 2.4);
+    const t = Math.min(1, (state.clock.elapsedTime - t0.current) / 5);
     const ease = 1 - Math.pow(1 - t, 3);
     const z = THREE.MathUtils.lerp(26, 12.5, ease);
-    camera.position.x = THREE.MathUtils.lerp(camera.position.x, pointer.x * 1.4, 0.05);
-    camera.position.y = THREE.MathUtils.lerp(camera.position.y, pointer.y * 0.8 + 0.3, 0.05);
+    camera.position.x = THREE.MathUtils.lerp(camera.position.x, pointer.x * 0.8, 0.04);
+    camera.position.y = THREE.MathUtils.lerp(camera.position.y, pointer.y * 0.5 + 0.3, 0.04);
     camera.position.z = z;
     camera.lookAt(0, 0.2, 0);
   });
@@ -27,10 +27,11 @@ function Line({ text, y, size, color, delay }: { text: string; y: number; size: 
   useFrame((s) => {
     if (!ref.current) return;
     if (start.current === null) start.current = s.clock.elapsedTime;
-    const t = Math.max(0, Math.min(1, (s.clock.elapsedTime - start.current - delay) / 1.2));
-    const e = 1 - Math.pow(1 - t, 4);
-    ref.current.position.z = THREE.MathUtils.lerp(-8, 0, e);
-    ref.current.rotation.x = THREE.MathUtils.lerp(-0.9, 0, e);
+    const t = Math.max(0, Math.min(1, (s.clock.elapsedTime - start.current - delay) / 2.2));
+    // Slow ease-in-out so each line is readable while it settles.
+    const e = t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    ref.current.position.z = THREE.MathUtils.lerp(-5, 0, e);
+    ref.current.rotation.x = THREE.MathUtils.lerp(-0.45, 0, e);
     ref.current.scale.setScalar(Math.max(0.0001, e));
   });
   return (
@@ -99,9 +100,9 @@ export default function Hero3DScene() {
       <pointLight position={[8, 2, 4]} intensity={30} color="#f3c97f" />
       <Suspense fallback={null}>
         <Fit>
-        <Line text="RUN YOUR HOTEL." y={1.55} size={1.15} color="#F7F5F0" delay={0.1} />
-        <Line text="WE'LL HANDLE" y={-0.05} size={0.82} color="#e0b46a" delay={0.45} />
-        <Line text="THE COMPLEXITY." y={-1.3} size={0.82} color="#f4c6cf" delay={0.7} />
+        <Line text="RUN YOUR HOTEL." y={1.55} size={1.15} color="#F7F5F0" delay={0.4} />
+        <Line text="WE'LL HANDLE" y={-0.05} size={0.82} color="#e0b46a" delay={1.7} />
+        <Line text="THE COMPLEXITY." y={-1.3} size={0.82} color="#f4c6cf" delay={3.0} />
         <Panels />
         </Fit>
       </Suspense>

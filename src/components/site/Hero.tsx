@@ -43,7 +43,7 @@ function FlatHeadline() {
           style={{ textShadow: "0 6px 0 rgb(40 6 14 / .55)" }}
           initial={reduce ? false : { opacity: 0, y: 30, scale: 1.2 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.15 * i, ease: [0.2, 0.8, 0.2, 1] }}
+          transition={{ duration: 1.4, delay: 0.3 + 1.1 * i, ease: [0.4, 0, 0.2, 1] }}
         >
           {l.t}
         </motion.span>
@@ -73,7 +73,7 @@ export function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9, duration: 0.7 }}
+          transition={{ delay: 2.6, duration: 1.2 }}
           className="relative mx-auto max-w-2xl pb-20 text-center"
         >
           <p className="text-base text-slate sm:text-lg md:text-xl">
