@@ -1,9 +1,19 @@
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { Center, Float, RoundedBox, Text3D } from "@react-three/drei";
-import { Suspense, useRef, type ReactNode } from "react";
+import { Center, Float, RoundedBox, Text3D, useFont } from "@react-three/drei";
+import { Suspense, useEffect, useRef, type ReactNode } from "react";
 import * as THREE from "three";
 
 const FONT = "/fonts/helvetiker_bold.json";
+// Start downloading the 3D font as soon as this module is imported (during the hero intro).
+useFont.preload(FONT);
+
+/** Fires once everything inside the Suspense boundary (font included) has loaded. */
+function Ready({ onReady }: { onReady?: (() => void) | undefined }) {
+  useEffect(() => {
+    onReady?.();
+  }, [onReady]);
+  return null;
+}
 
 function Rig() {
   const { camera, pointer } = useThree();
@@ -27,7 +37,7 @@ function Line({ text, y, size, color, delay }: { text: string; y: number; size: 
   useFrame((s) => {
     if (!ref.current) return;
     if (start.current === null) start.current = s.clock.elapsedTime;
-    const t = Math.max(0, Math.min(1, (s.clock.elapsedTime - start.current - delay) / 2.2));
+    const t = Math.max(0, Math.min(1, (s.clock.elapsedTime - start.current - delay) / 1.8));
     // Slow ease-in-out so each line is readable while it settles.
     const e = t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
     ref.current.position.z = THREE.MathUtils.lerp(-5, 0, e);
@@ -88,7 +98,7 @@ function Panels() {
   );
 }
 
-export default function Hero3DScene() {
+export default function Hero3DScene({ onReady }: { onReady?: () => void }) {
   return (
     <Canvas dpr={[1, 1.75]} style={{ touchAction: "pan-y" }} camera={{ position: [0, 0, 26], fov: 42 }} gl={{ antialias: true, alpha: true }} shadows>
       <ambientLight intensity={0.55} />
@@ -100,11 +110,12 @@ export default function Hero3DScene() {
       <pointLight position={[8, 2, 4]} intensity={30} color="#f3c97f" />
       <Suspense fallback={null}>
         <Fit>
-        <Line text="RUN YOUR HOTEL." y={1.55} size={1.15} color="#F7F5F0" delay={0.4} />
-        <Line text="WE'LL HANDLE" y={-0.05} size={0.82} color="#e0b46a" delay={1.7} />
-        <Line text="THE COMPLEXITY." y={-1.3} size={0.82} color="#f4c6cf" delay={3.0} />
+        <Line text="RUN YOUR HOTEL." y={1.55} size={1.15} color="#F7F5F0" delay={0.2} />
+        <Line text="WE'LL HANDLE" y={-0.05} size={0.82} color="#e0b46a" delay={0.8} />
+        <Line text="THE COMPLEXITY." y={-1.3} size={0.82} color="#f4c6cf" delay={1.4} />
         <Panels />
         </Fit>
+        <Ready onReady={onReady} />
       </Suspense>
       <Rig />
     </Canvas>
